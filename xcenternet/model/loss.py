@@ -1,4 +1,8 @@
 import tensorflow as tf
+from typing import Dict, List
+
+def heatmap_focal_loss(outputs: Dict, predictions: List) -> tf.Tensor:
+    return focal_loss(outputs['heatmap'], predictions[0])
 
 @tf.function
 def focal_loss(hm_true: tf.Tensor, hm_pred: tf.Tensor) -> tf.Tensor:
