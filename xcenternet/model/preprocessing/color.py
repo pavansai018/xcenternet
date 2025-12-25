@@ -85,7 +85,7 @@ def tf_py_contrast(image):
     return image
 
 @tf.function
-def imgaug_dropout(image):
+def tf_py_dropout(image):
     im_shape = image.shape
     [image, ] = tf.py_function(imgaug_dropout, [image], [tf.uint8])
     image.set_shape(im_shape)
